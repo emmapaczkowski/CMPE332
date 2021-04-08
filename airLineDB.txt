@@ -103,7 +103,7 @@ insert into Airplane values
 
 
 insert into Flight values
-('249AC','AC', '1451','YYZ','YYC', '16:00:00','16:00:11','12:00:00','12:00:11'),
+('249AC','AC', '1451','YYZ','YYC', '16:00:00','16:00:00','12:00:00','12:00:11'),
 ('347WJ', 'WJ', '1123', 'YYJ', 'YUL', '12:00:00', '12:13:04', '17:00:00', '16:58:48');
 
 insert into Days_Offered values
