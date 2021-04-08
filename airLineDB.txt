@@ -1,0 +1,122 @@
+drop database airlineDB;
+create database airlineDB;
+
+CREATE TABLE Airline(
+name			VARCHAR(40)	NOT NULL,
+code			CHAR(2)		NOT NULL,	
+PRIMARY KEY(code));
+
+
+CREATE TABLE Airplane_Type (
+type			CHAR(4)		NOT NULL,
+company			VARCHAR(40)	NOT NULL,
+number_of_seats		INTEGER		NOT NULL,
+PRIMARY KEY(type));
+
+CREATE TABLE Airplane (
+ID			CHAR(4)		NOT NULL,
+designed_as		CHAR(4)		NOT NULL,
+owened_by		CHAR(2)		NOT NULL,
+year_built		INTEGER(4)		NOT NULL,
+PRIMARY KEY(ID),
+FOREIGN KEY(designed_as) REFERENCES Airplane_Type(type) ON DELETE CASCADE,
+FOREIGN KEY(owened_by) REFERENCES Airline(code) ON DELETE CASCADE);
+
+
+CREATE TABLE Airport (
+name			VARCHAR(60)	NOT NULL,	
+city			VARCHAR(40)	NOT NULL,
+province		VARCHAR(40)	NOT NULL,
+code			CHAR(3)		NOT NULL,
+PRIMARY KEY(code));
+
+
+CREATE TABLE Flight(
+flight_number		CHAR(5)		NOT NULL,
+parent_airline		CHAR(2)		NOT NULL,
+flown_by		VARCHAR(40),	
+destination		CHAR(3),	
+origin			CHAR(3),	
+scheduled_arrival	TIME,
+actuall_arrival		TIME,
+scheduled_departure	TIME,
+actuall_departure	TIME,
+PRIMARY KEY(flight_number, parent_airline),
+FOREIGN KEY(parent_airline) REFERENCES Airline(code) ON DELETE CASCADE,
+FOREIGN KEY(destination) REFERENCES Airport(code)ON DELETE CASCADE,
+FOREIGN KEY(origin) REFERENCES Airport(code) ON DELETE CASCADE,
+FOREIGN KEY(flown_by) REFERENCES Airplane(ID) ON DELETE CASCADE);
+
+
+CREATE TABLE Days_Offered(
+flight_num		CHAR(5)		NOT NULL,
+day			VARCHAR(9)	NOT NULL,
+PRIMARY KEY(flight_num, day),
+FOREIGN KEY(flight_num) REFERENCES Flight(flight_number) ON DELETE CASCADE);
+
+
+CREATE TABLE Supported_Flights(
+airport_code		CHAR(3)		NOT NULL,
+plane_type		CHAR(4)		NOT NULL,
+PRIMARY KEY(airport_code, plane_type),
+FOREIGN KEY(airport_code) REFERENCES Airport(code) ON DELETE CASCADE,
+FOREIGN KEY(plane_type) REFERENCES Airplane_Type(type) ON DELETE CASCADE);
+
+
+insert into Airport values
+('Toronto Pearson International Airport','Toronto', 'Ontario','YYZ'),
+('Victoria Interational Airport', 'Victoria', 'British Columbia', 'YYJ'),
+('Erik Nielsen Whitehorse International Airport', 'Whitehorse', 'Yukon', 'YXY'),
+('Montréal-Pierre Elliott Trudeau International Airport', 'Montreal', 'Quebec', 'YUL'),
+('Calgary International Airport', 'Calgary', 'Alberta', 'YYC');
+
+insert into Airplane_Type values
+('A380', 'Airbus', 348),
+('300F', 'Boeing', 600),
+('7478','Boeing', 500);
+
+insert into Supported_Flights values
+('YYZ','7478'),
+('YYC','7478'),
+('YYJ','7478'),
+('YXY','7478'),
+('YUL','7478'),
+('YYC','A380'),
+('YYJ','A380'),
+('YXY','A380'),
+('YYC','300F'),
+('YYJ','300F'),
+('YXY','300F'),
+('YYZ','300F');
+
+insert into Airline values
+('Air North', 'AN'),
+('West Jet', 'WJ'),
+('Air Canada', 'AC');
+
+
+insert into Airplane values
+('1234', 'A380', 'AN', 2018),
+('1123', '300F','WJ', 2000),
+('1451', '7478','AC', 2020);
+
+
+
+insert into Flight values
+('249AC','AC', '1451','YYZ','YYC', '16:00:00','16:00:11','12:00:00','12:00:11'),
+('347WJ', 'WJ', '1123', 'YYJ', 'YUL', '12:00:00', '12:13:04', '17:00:00', '16:58:48');
+
+insert into Days_Offered values
+('249AC','Friday'),
+('347WJ', 'Tuesday');
+
+
+
+
+
+
+
+
+
+
+
