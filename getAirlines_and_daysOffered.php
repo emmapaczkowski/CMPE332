@@ -4,7 +4,7 @@
    $result = $connection->query($query);
    echo "Which arline? </br>";
    while ($row = $result->fetch()) {
-        echo '<input type="radio" name="name" value="';
+        echo '<input type="radio" name="airline" value="';
         echo $row["code"];
         echo '">' . $row["name"] . " | " . $row["code"] . "<br>";
    }
@@ -12,7 +12,7 @@
    $result = $connection->query($query);
    echo "Days Offered? </br>";
    while ($row = $result->fetch()) {
-        echo '<input type="radio" name="name" value="';
+        echo '<input type="radio" name="day" value="';
         echo $row["day"];
         echo '">' . $row["day"] . "<br>";
    }

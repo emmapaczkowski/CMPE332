@@ -16,12 +16,13 @@
     ?>
 
     <h3> Find a flight! </h3>
-    <form action="getAirlines_and_daysOffered.php" method="post">
+    <form action="findflight.php" method="post">
     <?php
-    include 'findflights.php';
+    include 'getAirlines_and_daysOffered.php';
     ?>
     <input type="submit" value="Select Airline">
     </form>
+    
     <?php
     $connection = NULL;
     ?>
