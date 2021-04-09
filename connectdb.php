@@ -1,3 +1,4 @@
+<!-- To connect to my database -->
 <?php
 try {
     $connection = new PDO('mysql:host=localhost;dbname=airlinedb', "root", "");

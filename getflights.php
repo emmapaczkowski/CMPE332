@@ -1,3 +1,4 @@
+<!-- This is for the first part of the assignment and it complete -->
 <?php
 $result = $connection->query("SELECT flight_number, actuall_arrival FROM flight WHERE actuall_arrival = scheduled_arrival;");
 echo "      Flight Number  |  Arrival Time";

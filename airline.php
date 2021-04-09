@@ -5,13 +5,26 @@
     <title>airline</title>
 </head>
 <body>
-<?php
-include 'connectdb.php';
-?>
+    <?php
+    include 'connectdb.php';
+    ?>
     <h1>Welcome to my airline!</h1>
-    <h3> All flights with scheduled arrival times that are the same as actual arrival time</h3>
+    <!-- <img src="airplane-flying.jpg" alt="Airplane"> -->
+    <h3> On time flights!</h3>
     <?php
     include 'getflights.php';
     ?>
+
+    <h3> Find a flight! </h3>
+    <form action="getAirlines_and_daysOffered.php" method="post">
+    <?php
+    include 'findflights.php';
+    ?>
+    <input type="submit" value="Select Airline">
+    </form>
+    <?php
+    $connection = NULL;
+    ?>
+
 </body>
 </html>
