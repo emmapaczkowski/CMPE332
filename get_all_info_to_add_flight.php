@@ -23,7 +23,6 @@
    while ($row = $result->fetch()) {
         echo '<input type="radio" name="arrival" value="';
         echo $row["name"];
-        echo '">' . $row["code"] . "<br>";
+        echo '">' . $row["code"] .   "<br>";
    }
-
 ?>
