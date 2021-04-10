@@ -120,7 +120,7 @@
             $number1 = $_POST['fnum1'];
             $number2 = $_POST['fnum2'];
             $number3= $_POST['fnum3'];
-            $flightNumber= $airline . $num1 . $num2 .$num3;
+            $flightNumber= $airLine . $number1 . $number2 .$number3;
             $dHour= $_POST["depHour"];
             $dMin= $_POST["depMin"];
             $dSec= $_POST["depSec"];
@@ -129,14 +129,14 @@
             $aMin= $_POST["arrMin"];
             $aSec= $_POST["arrSec"];
             $aTime= $aHour . ":" .  $aMin . ":" . $aSec;
-            $sql1 = 'SELECT ID FROM airlpane WHERE owned_by = "'. $airLine. '" ';
-            $resut = $connection->query($sql);
+            $sql1 = 'SELECT ID FROM airplane WHERE owened_by = "'. $airLine. '" ';
+            $resut = $connection->query($sql1);
             $airplaneID = "null";
             if ($row = $result->fetch()){
                 $airplaneID = $row["ID"];
             }
         
-            $sql2 = 'INSERT INTO flight VALUES("' . $flightNumber. '" , "' . $airLine . '" , "' . $airline. '" , "' . $arrivalAirort. '" , "' . $departureAirport. '" , "' . $dTime. '" , "' .$dTime . '" , "' . $aTime . '" , "' .$aTime . '")';
+            $sql2 = 'INSERT INTO flight VALUES("' . $flightNumber. '" , "' . $airLine . '" , "' . $airplaneID. '" , "' . $arrivalAirort. '" , "' . $departureAirport. '" , "' . $dTime. '" , "' .$dTime . '" , "' . $aTime . '" , "' .$aTime . '")';
             if($airplaneID != "null") {
                 $sql4 = 'SELECT flight_number FROM WHERE flight_number = "' . $flightNumber .'" ';
                 $value = $connection->query($sql4);
@@ -148,7 +148,7 @@
             if(isset($_POST['day'])) {
                 if (is_array($_POST['day'])) {
                     foreach($_POST['day'] as $value) {
-                       $sql3 = 'INSERT INTO days_offered VALUES("' . $value . '" , "'  . $flightNumber . '" ) ';
+                       $sql3 = 'INSERT INTO days_offered VALUES( "'  . $flightNumber . '" , "' . $value . '" ) ';
                        $sql4 = 'SELECT flight_num FROM days_offered  WHERE flight_num = "' . $flightNumber . '" ';
                        $value = $connection->query($sql4);
                        if (!($row = $value-> fetch())) {
@@ -158,12 +158,15 @@
 
                 } else {
                     $value = $_POST['day'];
-                    $sql3 = 'INSERT INTO days_offered VALUES("' . $value . '" , "' . $flightNumber . '")' ;
+                    $sql3 = 'INSERT INTO days_offered VALUES( "' . $flightNumber . '" , "' . $value . '" )' ;
                 }
             }
 
         } 
     ?>
+     <button onclick="window.location.href='airline.php';">
+      Return to home page!
+   </button>
 
 
 </body>
