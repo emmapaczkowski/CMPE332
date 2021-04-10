@@ -22,10 +22,13 @@
     ?>
     <input type="submit" value="Select Airline">
     </form>
-    
+
+    <h3>Add a flight!</h3>
+    <button onclick="window.location.href='add_flight_page.php';">
+      Add flight!
+   </button>
     <?php
     $connection = NULL;
     ?>
-
 </body>
 </html>

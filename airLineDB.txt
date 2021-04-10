@@ -107,7 +107,13 @@ insert into Flight values
 ('347WJ', 'WJ', '1123', 'YYJ', 'YUL', '12:00:00', '12:13:04', '17:00:00', '16:58:48');
 
 insert into Days_Offered values
+('249AC','Monday'),
+('249AC','Tuesday'),
+('249AC','Wednesday'),
+('249AC','Thursday'),
 ('249AC','Friday'),
+('249AC','Saturday'),
+('249AC','Sunday'),
 ('347WJ', 'Tuesday');
 
 
