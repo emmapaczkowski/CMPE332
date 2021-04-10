@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <meta charset="utf-8">
 <title>Flights from airline on day</title>
 <style> 
@@ -51,7 +52,7 @@ include 'connectdb.php';
 ?>
 
 <p> Return to home page: </p>
-   <button onclick="window.location.href='airline.php';">
+   <button class = "button" onclick="window.location.href='airline.php';">
       Return to home page!
    </button>
 

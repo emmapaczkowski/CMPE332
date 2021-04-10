@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html> 
+<link rel="stylesheet" href="style.css">
 <body>
+<!-- <img src="header.jpg" alt="header.jpg" width="1000" height = "300" /> -->
 <?php
     include 'connectdb.php';
 ?>
@@ -10,8 +12,10 @@
         location.reload();
     }
 </script>
-
-<h1 class=  "title">Add Flight</h1>
+<div class="header">
+  <h1>Add Flight!</h1>
+</div>
+<h1 class=  "title"></h1>
     <h2>Flight List</h2>
     <?php
     $result = $connection->query("select * from flight");
@@ -163,8 +167,10 @@
             }
 
         } 
+        echo "<br>";
     ?>
-     <button onclick="window.location.href='airline.php';">
+    
+     <button class="button" onclick="window.location.href='airline.php';">
       Return to home page!
    </button>
 

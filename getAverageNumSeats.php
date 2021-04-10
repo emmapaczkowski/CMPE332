@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <head>
 <meta charset="utf-8">
 <title>Average Number of Seats</title>
@@ -15,6 +16,8 @@ $whichDay = $_POST["day"];
 echo "Flights on $whichDay:";
 
 $query = ' SELECT * FROM days_offered JOIN flight WHERE day = "' . $whichDay . '" ';
+echo "<br>";
+echo "<br>";
    $result = $connection->query($query);
    $totalSeat = 0;
    $sumFlight = 0;
@@ -46,13 +49,13 @@ $query = ' SELECT * FROM days_offered JOIN flight WHERE day = "' . $whichDay . '
       echo "</table>";
     }
     $average = $totalSeat/$sumFlight;
+    echo "<br>";
     echo "Average Number of Seats: $average";
+    echo "<br>";
 
 ?>
 
-
-<p> Return to home page: </p>
-   <button onclick="window.location.href='airline.php';">
+   <button class ="button" onclick="window.location.href='airline.php';">
       Return to home page!
    </button>
 
