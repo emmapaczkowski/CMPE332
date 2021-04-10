@@ -22,10 +22,35 @@
     ?>
     <input type="submit" value="Select Airline">
     </form>
-    
+
+    <h3>Add a flight!</h3>
+    <form action="addflight.php" method="post">
+    <?php
+    include 'get_all_info_to_add_flight.php';
+    ?>
+    FlightNumber: <input type="text" name="petname"><br>
+    AirlineType: <input type="text" name="airplaneType"></br>
+    DepartTime: <input type="text" name="departureTime"></br>
+    AriveTime: <input type="text" name="arrivalTime"></br>
+    DayOfWeek: <input type="text" name="dayOfWeek"></br>
+
+    <input type="submit" value="Add Flight">
+    </form>
+
+    <!-- - display airlines
+    - display airports
+
+    - GOT flight_number
+    - GOT parent_airline
+    - flown_by
+    - destination
+    - origin 
+    - scheduled_arrival
+    - scheduled_departure
+    - you also need to add to days offered table -->
+
     <?php
     $connection = NULL;
     ?>
-
 </body>
 </html>
