@@ -31,7 +31,7 @@
     </button>
     <br><br/> 
 
-    <h3>Update Departure Time</h3>
+    <h3>Update Departure Time (hr:min:sec)</h3>
     <form type="number" action="update_departure_time.php" method="post">
         <?php
         include 'getAirplanecodes.php';

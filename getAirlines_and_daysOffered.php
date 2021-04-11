@@ -1,6 +1,6 @@
 <!-- Part 2: To querry all airlines and days offered from database. Complete -->
 <?php
-   $query = "SELECT * FROM airline";
+   $query = "SELECT DISTINCT * FROM airline";
    $result = $connection->query($query);
    echo "Which arline? </br>";
    echo "<br>";
@@ -9,7 +9,7 @@
         echo $row["code"];
         echo '">' . $row["name"] . " | " . $row["code"] . "<br>";
    }
-   $query = "SELECT * FROM days_offered";
+   $query = "SELECT DISTINCT * FROM days_offered";
    $result = $connection->query($query);
    echo "<br>";
    echo "<br>";

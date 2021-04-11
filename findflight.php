@@ -44,14 +44,15 @@ include 'connectdb.php';
 
       while($row3 = $result3->fetch()) {
          echo "<td>" . $row3["city"] . "</td>";
-         echo "</tr>";
+         
       }
+      echo "</tr>";
       echo "</table>";
    }
 
 ?>
 
-<p> Return to home page: </p>
+<p> </p>
    <button class = "button" onclick="window.location.href='airline.php';">
       Return to home page!
    </button>

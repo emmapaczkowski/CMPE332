@@ -6,6 +6,9 @@
 <title>Update departure time</title>
 </head>
 <body>
+<img src="clock.jpg" alt="Airplane" width="1000" height = "300" />
+<br></br>
+
 <?php
 include 'connectdb.php';
 ?>

@@ -43,8 +43,9 @@
     echo "</table>"    
     ?>
 
-    <br> <button onclick= "reloadPage()">Refresh</button>
-    <p> ('111AN','AN', '1234','YYZ','YYC', '16:00:00','','12:00:00','') <p>
+
+    <br> <button onclick= "reloadPage()">Refresh</button>   
+
     <div class="section">
     <h2>Add Flight</h2>
     <form action = "add_flight_page.php" method = "post" name = "addflight">
@@ -58,7 +59,7 @@
             echo '">' . $row["name"] . " | " . $row["code"] . "<br>";
         }
     ?>
-    <p> Select a departing airline </p>
+    <p> Select a departing Airport </p>
     <?php
         echo "<br>";
         $query = "SELECT * FROM airport";
@@ -69,7 +70,7 @@
             echo '">' . $row["code"] .  "<br>";
         }
    ?>
-   <p> Select a arrival airline </p>
+   <p> Select a arrival Airport </p>
     <?php
         echo "<br>";
         $query = "SELECT * FROM airport";
@@ -112,7 +113,11 @@
     <input name="arrMin" id="min" type="number" value='0' min="0" max="59">
     <input name="arrSec" id="sec" type="number" value='0' min="0" max="59">
     <br></br>
-    <input type = "submit" name="submit" value="New Flight" onClick="clearform()">  
+
+
+   <br></br>
+   
+    <input type = "submit" name="submit" value="New Flight" onClick="clearform()" >  
     </form>
 
     <?php
