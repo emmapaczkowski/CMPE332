@@ -1,5 +1,5 @@
 <?php
-    $query = "SELECT * FROM days_offered";
+    $query = "SELECT DISTINCT  day FROM days_offered";
     $result = $connection->query($query);
     echo "Days Offered? </br>";
     while ($row = $result->fetch()) {
@@ -8,3 +8,4 @@
          echo '">' . $row["day"] . "<br>";
     }
     ?>
+

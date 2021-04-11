@@ -15,11 +15,4 @@ echo "<table class = 'table' border='1'>
     echo "</tr>"; 
 }
 echo "</table>";
-
-
-
-
 ?>
-
-
-

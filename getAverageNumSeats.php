@@ -7,6 +7,8 @@
 </head>
 
 <body>
+<img src="cloud_header.jpg" alt="clock" width="1000" height = "300" />
+<br></br>
 <?php
 include 'connectdb.php';
 ?>
@@ -16,6 +18,7 @@ $whichDay = $_POST["day"];
 echo "Flights on $whichDay:";
 
 $query = ' SELECT * FROM days_offered JOIN flight WHERE day = "' . $whichDay . '" ';
+$results = $connection->query($query);
 echo "<br>";
 echo "<br>";
    $result = $connection->query($query);
@@ -43,9 +46,9 @@ echo "<br>";
       while($row2 = $results2->fetch()) {
         $numSeats = $row2["number_of_seats"];
         echo "<td>" . $numSeats . "</td>";
-        echo "</tr>";
         $totalSeat += $numSeats;
       }
+      echo "</tr>";
       echo "</table>";
     }
     $average = $totalSeat/$sumFlight;

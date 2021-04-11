@@ -21,20 +21,35 @@
         <?php
         include 'getAirlines_and_daysOffered.php';
         ?>
-        <input type="submit" value="Select Airline">
+        <input class = "button2" type="submit" value="Select Airline">
     </form>
     <br><br/> 
+
     <h3>Add a flight!</h3>
-    <button onclick="window.location.href='add_flight_page.php';">
-        Add flight!
+    <button class = "button2" onclick="window.location.href='add_flight_page.php';">
+        Add flight
     </button>
     <br><br/> 
+
+    <h3>Update Departure Time</h3>
+    <form type="number" action="update_departure_time.php" method="post">
+        <?php
+        include 'getAirplanecodes.php';
+        ?>
+        <input name="depHour" id="hour" type="number" value='0' min="0" max="23">
+        <input name="depMin" id="min" type="number" value='0' min="0" max="59">
+        <input name="depSec" id="sec" type="number" value='0' min="0" max="59">
+        <br><br/> 
+        <input class = "button2" type="submit" value="Update">
+    </form>
+    <br><br/> 
+
    <h3>Average number of seets per Day</h3>
-   <form action = "getAverageNumSeats.php" method = "post">
+   <form type= "number" action = "getAverageNumSeats.php" method = "post">
         <?php
         include 'getDaysOffered.php';
-        ?>
-        <input type="submit" value="Get Average">
+        ?> 
+        <input type="submit" value="Get Average">    
    </form>
 
     <?php
@@ -43,5 +58,8 @@
        <br><br/> 
        <br><br/> 
        <br><br/> 
+       <div class="footer">
+  <p>Thank you!</p>
+</div>
 </body>
 </html>
